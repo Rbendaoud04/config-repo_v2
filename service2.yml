@@ -1,0 +1,7 @@
+server:
+  port: 8082
+
+app:
+  name: "Service 2"
+  environment: "default"
+  developer: "Rbendaoud@rbd.com"
