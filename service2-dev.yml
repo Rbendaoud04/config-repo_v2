@@ -1,0 +1,39 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /service2-dev
+
+app:
+  name: "Service 2"
+  version: "1.0.0:latest"
+  developer: "Rbendaoud@rbd.com"
+  feature-flags:
+    enableNewUI: true
+    enableLogging: true
+
+# application-h2.yml
+spring:
+  
+  datasource:
+    url: jdbc:h2:mem:service2db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+logging:
+  level:
+    root: INFO
+    com.service1: DEBUG
+
+
+
+
