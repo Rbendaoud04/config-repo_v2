@@ -1,0 +1,14 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /gateway-dev
+
+app:
+  name: "gateway-service"
+  version: "1.0.5:latest"
+  developer: "Rbendaoud@rbd.com"
+  feature-flags:
+    enableNewUI: true
+    enableLogging: true
+
+
