@@ -1,0 +1,26 @@
+server:
+  port: 9000
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service1-route
+          uri: lb://service1
+          predicates:
+            - Path=/api/service1/**
+          filters:
+            - StripPrefix=2
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 5
+                redis-rate-limiter.burstCapacity: 10
+        - id: service2-route
+          uri: lb://service2
+          predicates:
+            - Path=/api/service2/**
+          filters:
+            - StripPrefix=2
